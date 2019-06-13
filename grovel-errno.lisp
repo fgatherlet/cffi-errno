@@ -20,7 +20,7 @@
 
 (include "errno.h")
 
-(cvar ("errno" errno) :int)
+#-freebsd(cvar ("errno" errno) :int)
 
 (constant (+eperm+ "EPERM"))
 (constant (+enoent+ "ENOENT"))

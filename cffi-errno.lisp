@@ -18,6 +18,12 @@
 
 (in-package :cffi-errno)
 
+#+freebsd
+(progn
+  (defcfun ("__error" __error) :pointer)
+  (define-symbol-macro errno
+      (cffi:mem-ref (__error) :int)))
+
 (defcfun ("strerror" c-strerror) :string
   (errnum :int))
 
